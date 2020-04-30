@@ -19,6 +19,9 @@ public abstract class Animals {
 
 
     public void save(){
+        if(this.name.equals("")||this.type.equals("")||this.name.equals(null)||this.type.equals(null)){
+            throw new IllegalArgumentException("Fields cannot be empty");
+        }
         try (Connection con=DB.sql2o.open()){
 
             String sql ="INSERT INTO animals (name,type) VALUES (:name,:type)";

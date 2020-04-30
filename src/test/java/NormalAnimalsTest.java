@@ -20,6 +20,16 @@ public class NormalAnimalsTest {
         assertTrue(NormalAnimals.all().get(0).equals(testAnimal));
     }
 
+    @Test
+    public void ensureNameFieldCannotBeEmpty(){
+        NormalAnimals testAnimal=new NormalAnimals("");
+        try {
+            testAnimal.save();
+        }catch (IllegalArgumentException e){
+
+        }
+    }
+
     private NormalAnimals setUpNewAnimal() {
         return new NormalAnimals("Albino Giraffe");
     }

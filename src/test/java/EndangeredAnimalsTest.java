@@ -20,6 +20,15 @@ public class EndangeredAnimalsTest {
         testAnimal.save();
         assertTrue(EndangeredAnimals.all().get(0).equals(testAnimal));
     }
+    @Test
+    public void ensureNameFieldCannotBeEmpty(){
+        EndangeredAnimals testAnimal=new EndangeredAnimals("");
+        try {
+            testAnimal.save();
+        }catch (IllegalArgumentException e){
+
+        }
+    }
 
     private EndangeredAnimals setUpNewAnimal() {
         return new EndangeredAnimals("Albino Giraffe");
