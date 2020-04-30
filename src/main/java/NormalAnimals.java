@@ -10,12 +10,13 @@ public class NormalAnimals extends Animals implements DatabaseManagement {
         this.type=ANIMAL_TYPE;
 
     }
-    public static List<EndangeredAnimals> all(){
+
+    public static List<NormalAnimals> all(){
         try (Connection con=DB.sql2o.open()) {
             String sql ="SELECT * FROM animals WHERE type='normal'";
             return con.createQuery(sql)
                     .throwOnMappingFailure(false)
-                    .executeAndFetch(EndangeredAnimals.class);
+                    .executeAndFetch(NormalAnimals.class);
 
         }
     }
