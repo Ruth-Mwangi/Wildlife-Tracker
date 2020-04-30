@@ -7,8 +7,6 @@ public abstract class Animals {
 
     public int id;
     public String name;
-    public String health;
-    public String age;
     public String type;
 
     public static final String HEALTH_HEALTHY="healthy";
@@ -23,12 +21,10 @@ public abstract class Animals {
     public void save(){
         try (Connection con=DB.sql2o.open()){
 
-            String sql ="INSERT INTO animals (name,health,age,type) VALUES (:name,:health,:age,:type)";
+            String sql ="INSERT INTO animals (name,type) VALUES (:name,:type)";
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("name",this.name)
-                    .addParameter("health",this.health)
-                    .addParameter("age",this.age)
                     .addParameter("type",this.type)
                     .executeUpdate()
                     .getKey();
@@ -41,13 +37,11 @@ public abstract class Animals {
         if (o == null || getClass() != o.getClass()) return false;
         Animals animals = (Animals) o;
         return name.equals(animals.name) &&
-                health.equals(animals.health) &&
-                age.equals(animals.age) &&
                 type.equals(animals.type);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, health, age, type);
+        return Objects.hash(name,type);
     }
 }

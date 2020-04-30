@@ -22,7 +22,7 @@ public class EndangeredAnimalsTest {
     }
 
     private EndangeredAnimals setUpNewAnimal() {
-        return new EndangeredAnimals("Albino Giraffe","healthy","young");
+        return new EndangeredAnimals("Albino Giraffe");
     }
 
 
