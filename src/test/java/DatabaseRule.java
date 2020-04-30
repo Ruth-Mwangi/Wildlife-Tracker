@@ -9,12 +9,12 @@ public class DatabaseRule extends ExternalResource {
         DB.sql2o=new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "wangui", "33234159");
     }
 
-//    @Override
-//    public void after(){
-//        try (Connection con = DB.sql2o.open()){
-//            String deleteAnimalQuery="DELETE FROM animals *";
-//            con.createQuery(deleteAnimalQuery).executeUpdate();
-//        }
-//    }
+    @Override
+    public void after(){
+        try (Connection con = DB.sql2o.open()){
+            String deleteAnimalQuery="DELETE FROM animals *";
+            con.createQuery(deleteAnimalQuery).executeUpdate();
+        }
+    }
 
 }
