@@ -14,8 +14,15 @@ public class EndangeredAnimalsTest {
         assertEquals(true,testAnimal instanceof EndangeredAnimals);
     }
 
+    @Test
+    public void allInstacesAreSaved(){
+        EndangeredAnimals testAnimal=setUpNewAnimal();
+        testAnimal.save();
+        assertTrue(EndangeredAnimals.all.get(0).equals(testAnimal));
+    }
+
     private EndangeredAnimals setUpNewAnimal() {
-        return new EndangeredAnimals("Albino Girrafe","healthy","young");
+        return new EndangeredAnimals("Albino Giraffe","healthy","young");
     }
 
 
