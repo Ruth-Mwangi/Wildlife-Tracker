@@ -1,13 +1,16 @@
 
 import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
+import java.util.List;
 import java.util.Objects;
 
-public abstract class Animals {
+public class Animals {
 
     public int id;
     public String name;
     public String type;
+
 
 //    public static final String HEALTH_HEALTHY="healthy";
 //    public static final String HEALTH_ILL="ill";
@@ -18,11 +21,16 @@ public abstract class Animals {
 //    public static final String AGE_ADULT="adult";
 
 
+    public String getName() {
+        return name;
+    }
+
     public void save(){
         if(this.name.equals("")||this.type.equals("")||this.name.equals(null)||this.type.equals(null)){
             throw new IllegalArgumentException("Fields cannot be empty");
         }
         try (Connection con=DB.sql2o.open()){
+
 
             String sql ="INSERT INTO animals (name,type) VALUES (:name,:type)";
 
@@ -32,6 +40,22 @@ public abstract class Animals {
                     .executeUpdate()
                     .getKey();
         }
+    }
+
+    public void update(int id,String type){
+        try (Connection con=DB.sql2o.open()){
+            String sql= "UPDATE animals SET type=:type WHERE id=:id";
+            con.createQuery(sql)
+                    .addParameter("type",this.type)
+                    .addParameter("id",this.id)
+                    .executeUpdate();
+
+
+        }catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+
+
     }
 
     @Override
