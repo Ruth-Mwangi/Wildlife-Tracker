@@ -61,6 +61,7 @@ public class Animals implements DatabaseManagement {
 
     }
 
+
     public void update(int id,String type,String health,String age) {
         try (Connection con = DB.sql2o.open()) {
             if (type.equals("")) {

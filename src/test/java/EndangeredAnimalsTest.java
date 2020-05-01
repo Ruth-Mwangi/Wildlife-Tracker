@@ -27,7 +27,6 @@ public class EndangeredAnimalsTest {
     public void findByIdReturnsCorrectInfo(){
         EndangeredAnimals testAnimal=setUpNewAnimal();
         testAnimal.save();
-        System.out.println(testAnimal.getId());
         Animals foundAnimal= Animals.find(testAnimal.getId());
         assertTrue(foundAnimal.getHealth().equals(testAnimal.getHealth()));
 
@@ -51,7 +50,7 @@ public class EndangeredAnimalsTest {
     }
 
     @Test
-    public void ensureAllEntriesAreDeleted(){
+    public void deleteAllEntries(){
         EndangeredAnimals testAnimal=setUpNewAnimal();
         EndangeredAnimals otherAnimal=setUpNewAnimal();
         testAnimal.save();
@@ -76,8 +75,6 @@ public class EndangeredAnimalsTest {
         }catch (IllegalArgumentException e){
 
         }
-
-
 
     }
 
