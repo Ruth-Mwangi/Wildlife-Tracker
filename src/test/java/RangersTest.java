@@ -58,7 +58,16 @@ public class RangersTest {
         }catch (IllegalArgumentException e){
             System.out.println(e);
         }
+    }
 
+    @Test
+    public void entriesAreDeleted() {
+        Rangers ranger= setUpNewRanger();
+        Rangers otherRanger=new Rangers("Sylvia","2","0726108898");
+        ranger.save();
+        otherRanger.save();
+        ranger.delete();
+        assertEquals(null,Rangers.find(ranger.getId()));
 
     }
 
