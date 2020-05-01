@@ -31,6 +31,14 @@ public class EndangeredAnimalsTest {
 
     }
     @Test
+    public void deleteByID(){
+        EndangeredAnimals testAnimal=setUpNewAnimal();
+        testAnimal.save();
+        testAnimal.delete();
+        assertEquals(null,Animals.find(testAnimal.getId()));
+
+    }
+    @Test
     public void ensureNameFieldCannotBeEmpty(){
         EndangeredAnimals testAnimal=new EndangeredAnimals("","endangered","","");
         try {
