@@ -1,6 +1,8 @@
 import org.junit.Rule;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class EndangeredAnimalsTest {
@@ -46,6 +48,37 @@ public class EndangeredAnimalsTest {
         }catch (IllegalArgumentException e){
 
         }
+    }
+
+    @Test
+    public void ensureAllEntriesAreDeleted(){
+        EndangeredAnimals testAnimal=setUpNewAnimal();
+        EndangeredAnimals otherAnimal=setUpNewAnimal();
+        testAnimal.save();
+        otherAnimal.save();
+        Animals.deleteAll();
+        List<Animals> animals=Animals.all();
+        assertEquals(0,animals.size());
+
+
+    }
+
+    @Test
+    public void ensureEntryIsUpdatedCorrectly(){
+        EndangeredAnimals testAnimal=setUpNewAnimal();
+        EndangeredAnimals otherAnimal=testAnimal;
+        testAnimal.save();
+        try {
+            testAnimal.update(testAnimal.getId(),"endangered","okay","newborn");
+            Animals updatedAnimal=  Animals.find(testAnimal.getId());
+            assertEquals(updatedAnimal.getId(),otherAnimal.getId());
+            assertNotEquals(updatedAnimal.getHealth(),otherAnimal.getHealth());
+        }catch (IllegalArgumentException e){
+
+        }
+
+
+
     }
 
     private EndangeredAnimals setUpNewAnimal() {

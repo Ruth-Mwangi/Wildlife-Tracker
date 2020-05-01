@@ -61,20 +61,43 @@ public class Animals implements DatabaseManagement {
 
     }
 
-    public void update(int id,String type){
-        try (Connection con=DB.sql2o.open()){
-            String sql= "UPDATE animals SET type=:type WHERE id=:id";
-            con.createQuery(sql)
-                    .addParameter("type",this.type)
-                    .addParameter("id",this.id)
-                    .executeUpdate();
+    public void update(int id,String type,String health,String age) {
+        try (Connection con = DB.sql2o.open()) {
+            if (type.equals("")) {
+                throw new IllegalArgumentException("All fields must be filled");
+            }
+            if (type == "endangered") {
+                if (health.equals("") || age.equals("")) {
+                    throw new IllegalArgumentException("All fields must be filled");
+                }
+                String sql = "UPDATE animals SET type=:type,health=:health,age=:age WHERE id=:id";
+                con.createQuery(sql)
+                        .addParameter("type", type)
+                        .addParameter("health", health)
+                        .addParameter("age", age)
+                        .addParameter("id", this.id)
+                        .executeUpdate();
+            } else {
+
+                String sql = "UPDATE animals SET type=:type,health=:health,age=:age WHERE id=:id";
+                con.createQuery(sql)
+                        .addParameter("type", type)
+                        .addParameter("health", "")
+                        .addParameter("age", "")
+                        .addParameter("id", this.id)
+                        .executeUpdate();
+            }
 
         }catch (Sql2oException ex){
             System.out.println(ex);
         }
-
-
     }
+
+
+
+
+
+
 
     public static Animals find(int id){
         try (Connection con=DB.sql2o.open()){
@@ -98,7 +121,25 @@ public class Animals implements DatabaseManagement {
 
         }
     }
+    public static void deleteAll(){
+        try (Connection con=DB.sql2o.open()){
+            String sql = "DELETE FROM animals";
+            con.createQuery(sql)
+                    .executeUpdate();
+        }  catch (Sql2oException ex){
+        System.out.println(ex);
+    }
 
+    }
+    public static List<Animals> all(){
+        try (Connection con=DB.sql2o.open()) {
+            String sql ="SELECT * FROM animals";
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Animals.class);
+
+        }
+    }
 
     @Override
     public boolean equals(Object o) {
