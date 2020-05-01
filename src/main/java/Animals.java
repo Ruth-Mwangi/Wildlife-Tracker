@@ -5,41 +5,60 @@ import org.sql2o.Sql2oException;
 import java.util.List;
 import java.util.Objects;
 
-public class Animals {
+public class Animals implements DatabaseManagement {
 
     public int id;
     public String name;
     public String type;
+    private String health;
+    private String age;
+    public static final String ANIMAL_TYPE="normal";
 
 
-//    public static final String HEALTH_HEALTHY="healthy";
-//    public static final String HEALTH_ILL="ill";
-//    public static final String HEALTH_OKAY="okay";
-//
-//    public static final String AGE_NEWBORN="newborn";
-//    public static final String AGE_YOUNG="young";
-//    public static final String AGE_ADULT="adult";
 
+    public Animals(String name,String type) {
+        this.name = name;
+        this.type=ANIMAL_TYPE;
+        this.health="";
+        this.age="";
+    }
+
+    public String getHealth() {
+        return health;
+    }
+
+    public String getAge() {
+        return age;
+    }
 
     public String getName() {
         return name;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void save(){
         if(this.name.equals("")||this.type.equals("")||this.name.equals(null)||this.type.equals(null)){
             throw new IllegalArgumentException("Fields cannot be empty");
         }
-        try (Connection con=DB.sql2o.open()){
+            try (Connection con=DB.sql2o.open()){
 
 
-            String sql ="INSERT INTO animals (name,type) VALUES (:name,:type)";
+                String sql ="INSERT INTO animals (name,type) VALUES (:name,:type)";
 
-            this.id=(int) con.createQuery(sql,true)
-                    .addParameter("name",this.name)
-                    .addParameter("type",this.type)
-                    .executeUpdate()
-                    .getKey();
-        }
+                this.id=(int) con.createQuery(sql,true)
+                        .addParameter("name",this.name)
+                        .addParameter("type",this.type)
+                        .executeUpdate()
+                        .getKey();
+            }
+
     }
 
     public void update(int id,String type){
@@ -50,13 +69,26 @@ public class Animals {
                     .addParameter("id",this.id)
                     .executeUpdate();
 
-
         }catch (Sql2oException ex){
             System.out.println(ex);
         }
 
 
     }
+
+    public static Animals find(int id){
+        try (Connection con=DB.sql2o.open()){
+            String sql= "SELECT * FROM animals WHERE id=:id";
+            Animals animal=  con.createQuery(sql)
+                    .addParameter("id",id)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetchFirst(Animals.class);
+            return animal;
+
+        }
+
+    }
+
 
     @Override
     public boolean equals(Object o) {

@@ -2,5 +2,10 @@ public interface DatabaseManagement {
 
     boolean equals(Object o);
     void save();
-    void update(int id);
+
+    static Animals find(int id) {
+        return null;
+    }
+    //void update(int id,String type);
+
 }
