@@ -68,6 +68,19 @@ public class Rangers {
 
     }
 
+    public void update(int id,String name,String phone_number){
+        try (Connection con=DB.sql2o.open()){
+            String sql="UPDATE TABLE rangers SET name=:name,phone_number=:phone_number WHERE id=:id";
+            con.createQuery(sql)
+                    .addParameter("id",this.id)
+                    .addParameter("name",name)
+                    .addParameter("phone_number",phone_number)
+                    .executeUpdate();
+
+        }
+
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
