@@ -1,5 +1,8 @@
 import org.sql2o.Connection;
 
+import java.util.List;
+import java.util.Objects;
+
 public class Locations {
 
     private int id;
@@ -17,6 +20,16 @@ public class Locations {
         return name;
     }
 
+    public static List<Locations> all(){
+        try (Connection con=DB.sql2o.open()){
+            String sql="SELECT * FROM locations";
+            return con.createQuery(sql)
+                    .throwOnMappingFailure(false)
+                    .executeAndFetch(Locations.class);
+        }
+
+    }
+
     public void save(){
         try (Connection con=DB.sql2o.open()){
             String sql="INSERT INTO locations (name) VALUES (:name)";
@@ -28,5 +41,19 @@ public class Locations {
                     .executeUpdate()
                     .getKey();
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Locations locations = (Locations) o;
+        return id == locations.id &&
+                name.equals(locations.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 }
