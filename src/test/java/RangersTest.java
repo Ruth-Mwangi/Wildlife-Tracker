@@ -33,6 +33,18 @@ public class RangersTest {
         }
     }
 
+    @Test
+    public void findById() {
+        Rangers ranger= setUpNewRanger();
+        Rangers otherRanger=new Rangers("Sylvia","2","0726108898");
+        ranger.save();
+        otherRanger.save();
+        Rangers foundRanger=Rangers.find(ranger.getId());
+        assertTrue(foundRanger.equals(ranger));
+
+
+    }
+
     //helper class
     private Rangers setUpNewRanger() {
         return new Rangers("Ruth","1","07123456");
