@@ -28,6 +28,16 @@ public class LocationsTest {
 
     }
 
+    @Test
+    public void entryIsDeletedSuccessfully() {
+        Locations location=setUpNewLocation();
+        Locations newLocation=new Locations("Zone B");
+        location.save();
+        newLocation.save();
+        location.delete();
+        assertEquals(null,Locations.find(location.getId()));
+    }
+
     //helper function
     private Locations setUpNewLocation() {
         return new Locations("Zone A");
