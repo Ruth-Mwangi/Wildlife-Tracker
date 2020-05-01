@@ -19,6 +19,8 @@ public class DatabaseRule extends ExternalResource {
             con.createQuery(deleteAnimalQuery).executeUpdate();
             con.createQuery(deleteSightingsQuery).executeUpdate();
             con.createQuery(deleteRangerQuery).executeUpdate();
+            String deleteLocationQuery="DELETE FROM locations *";
+            con.createQuery(deleteLocationQuery).executeUpdate();
         }
     }
 
