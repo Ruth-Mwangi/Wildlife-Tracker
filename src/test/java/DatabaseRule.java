@@ -6,7 +6,7 @@ public class DatabaseRule extends ExternalResource {
 
     @Override
     public void before(){
-        DB.sql2o=new Sql2o("jdbc:postgresql://localhost:5432/wildlife_tracker_test", "wangui", "33234159");
+        DB.sql2o=new Sql2o("jdbc:postgresql://tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com:5432/d7m5mfo9caefm6", "tlafeaczpyudbw", "cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678");
     }
 
     @Override

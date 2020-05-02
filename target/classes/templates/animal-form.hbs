@@ -1,0 +1,86 @@
+{{#partial "content"}}
+    <div class="form">
+        <form action="/create/animal/new" method="post">
+            <h1>Create Animal</h1>
+            <hr>
+
+            {{#if endangered}}
+                <div class="form-group">
+                    <label for="type">Type</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="normal"
+                               onClick="window.location = '/create/animal';" >
+                        <label class="form-check-label" for="inlineRadio1">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="endangered"
+                               onClick="window.location = '/create/animal/endangered';" checked>
+                        <label class="form-check-label" for="inlineRadio2">Endangered</label>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Input Name..." required>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="health">Health</label>
+                        </div>
+                        <select class="custom-select" id="health" name="health">
+                            <option selected>Choose...</option>
+                            {{#if health }}
+                                {{#each health as |h|}}
+                                    <option name="health" value={{h}}>{{h}}</option>
+                                {{/each}}
+
+                            {{/if}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="age">Age</label>
+                        </div>
+                        <select class="custom-select" id="age" name="age">
+                            <option selected>Choose...</option>
+                            {{#if age }}
+                                {{#each age as |a|}}
+                                    <option name="age" value={{a}}>{{a}}</option>
+                                {{/each}}
+
+                            {{/if}}
+                        </select>
+                    </div>
+                </div>
+            {{else}}
+                <div class="form-group">
+                    <label for="type">Type</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="normal"
+                               onClick="window.location = '/create/animal';" checked>
+                        <label class="form-check-label" for="inlineRadio1">Normal</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="type" id="inlineRadio1" value="endangered"
+                               onClick="window.location = '/create/animal/endangered';">
+                        <label class="form-check-label" for="inlineRadio2">Endangered</label>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Input Name..." required>
+                </div>
+
+            {{/if}}
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg"> Create </button>
+            </div>
+
+        </form>
+    </div>
+{{/partial}}
+{{> layout.hbs}}

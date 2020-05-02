@@ -4,12 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.ruth.hero-squad</groupId>
-    <artifactId>Hero-Squad</artifactId>
+    <groupId>com.ruth.wildlife-tracker</groupId>
+    <artifactId>Wildlife-Tracker</artifactId>
     <version>1.0</version>
 
     <dependencies>
         <!-- We need to list out ALL dependencies our project needs. If you have dependencies not listed here, but sure to add them -->
+<!--        postgresql-octagonal-91962   -->
+<!--       postgresql-rugged-07962 test-->
         <dependency>
             <groupId>com.sparkjava</groupId>
             <artifactId>spark-core</artifactId>
@@ -77,9 +79,9 @@
                 <configuration>
                     <jdkVersion>1.8</jdkVersion>
                     <!-- Change this to YOUR application name! -->
-                    <appName>ruth-hero-squads</appName>
+                    <appName>ruth-wildlife-tracker</appName>
                     <processTypes>
-                        <web>java -jar target/Hero-Squad-1.0-jar-with-dependencies.jar</web>
+                        <web>java -jar target/Wildlife-Tracker-1.0-jar-with-dependencies.jar</web>
                     </processTypes>
                 </configuration>
             </plugin>
