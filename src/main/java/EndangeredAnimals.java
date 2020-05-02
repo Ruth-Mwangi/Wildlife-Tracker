@@ -17,7 +17,7 @@ public class EndangeredAnimals extends Animals implements DatabaseManagement {
     public static final String ANIMAL_TYPE="endangered";
     public EndangeredAnimals(String name,String type,String health,String age) {
         super(name,type);
-        this.type=ANIMAL_TYPE;
+        this.type=type;
         this.health=health;
         this.age=age;
 

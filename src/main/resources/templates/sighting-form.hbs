@@ -1,0 +1,61 @@
+{{#partial "content"}}
+    <div class="form">
+        <form action="/create/sighting/new" method="post">
+            <h1>Create Sighting</h1>
+            <hr>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="location">Location</label>
+                    </div>
+                    <select class="custom-select" id="location" name="location">
+                        <option selected>Choose...</option>
+                            {{#if locations}}
+
+                                {{#each locations as |l|}}
+                                    <option name="location" value={{l.id}}>{{l.name}}</option>
+                                {{/each}}
+                            {{/if}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="ranger">Ranger</label>
+                    </div>
+                    <select class="custom-select" id="ranger" name="ranger">
+                        <option selected>Choose...</option>
+                        {{#if rangers}}
+
+                            {{#each rangers as |r|}}
+                                <option name="animal" value={{r.id}}>{{r.name}}</option>
+                            {{/each}}
+                        {{/if}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="animal">Animal</label>
+                    </div>
+                    <select class="custom-select" id="animal" name="animal">
+                        <option selected>Choose...</option>
+                        {{#if animals}}
+
+                            {{#each animals as |a|}}
+                                <option name="animal" value={{a.id}}>{{a.name}}</option>
+                            {{/each}}
+                        {{/if}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg"> Create </button>
+            </div>
+        </form>
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}

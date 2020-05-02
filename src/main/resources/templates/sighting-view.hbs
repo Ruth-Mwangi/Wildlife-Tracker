@@ -1,0 +1,34 @@
+{{#partial "content"}}
+    <div class="views sightings">
+        <h1>Sightings</h1>
+        <hr>
+
+        <div class="row">
+
+            {{#if sightings}}
+                <div class="col-md-3">
+                    <h3>Time</h3>
+                    <hr>
+                    {{#each sightings as |s|}}
+                        <h3>{{s.time}}</h3>
+                    {{/each}}
+                </div>
+                <div class="col-md-3">
+                    <h3>Animal</h3>
+                    <hr>
+                    {{#each animals as |a|}}
+                        <h3>{{a}}</h3>
+                    {{/each}}
+
+                </div>
+
+            {{else}}
+                <h1>No sightings!! Create some <a href="/create/sighting">here</a> </h1>
+
+            {{/if}}
+
+        </div>
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}

@@ -1,0 +1,62 @@
+{{#partial "content"}}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                {{#if rangers}}
+                    {{#each rangers as |r|}}
+                        <div class="entries">
+                            <p class="text" id={{r.id}}>{{r.name}}</p><br>
+                            <a href="/view/ranger/sightings/{{r.id}}"><button class="btn btn-primary btn-md">View
+                                Sightings</button></a>
+                            <a href="/view/ranger/delete/{{r.id}}"><button class="btn btn-danger
+                            btn-md">Delete Ranger</button></a>
+                        </div>
+                        <hr><br>
+                    {{/each}}
+
+                {{else}}
+                    <p class="text display-4">There are no rangers! Create some <a href="/create/ranger">here</a></p>
+                {{/if}}
+            </div>
+            <div class="col-md-8">
+                {{#if sightings}}
+                    <div class="card text-white bg-info">
+                        <div class="card-body">
+                            <h1 class="card-title">Sightings</h1>
+                            <hr>
+                            <div class="col-md-4">
+                                <h3>Time</h3>
+                                <hr>
+                                {{#each sightings as |s|}}
+                                    <li class="card-text ">{{s.time}}</li>
+                                {{/each}}
+
+                            </div>
+                            <div class="col-md-4">
+                                <h3>Animal</h3>
+                                <hr>
+                                {{#each animals as |a|}}
+                                    <li class="card-text ">{{a}}</li>
+                                {{/each}}
+
+                            </div>
+                            <div class="col-md-4">
+                                <h3>Type</h3>
+                                <hr>
+                                {{#each types as |t|}}
+                                    <li class="card-text ">{{t}}</li>
+                                {{/each}}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                {{/if}}
+
+            </div>
+        </div>
+    </div>
+
+{{/partial}}
+{{> layout.hbs}}
