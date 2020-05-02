@@ -102,8 +102,9 @@ public class Sightings {
                     .executeUpdate()
                     .getKey();
 
-            con.createQuery(joinRanger).addParameter("ranger_id",this.ranger_id).addParameter("sighting_id",this.id).executeUpdate();
-            con.createQuery(joinLocation).addParameter("location_id",this.location_id).addParameter("sighting_id",
+            con.createQuery(joinRanger).addParameter("ranger_id",this.getRanger_id()).addParameter("sighting_id",
+                    this.getId()).executeUpdate();
+            con.createQuery(joinLocation).addParameter("location_id",this.getLocation_id()).addParameter("sighting_id",
                     this.id).executeUpdate();
 
             }
