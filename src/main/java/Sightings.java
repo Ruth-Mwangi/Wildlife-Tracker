@@ -90,6 +90,9 @@ public class Sightings {
         try (Connection con=DB.sql2o.open()){
             String sql= "INSERT INTO sightings (animal_id,ranger_id,location_id,time) VALUES (:animal_id,:ranger_id," +
                     ":location_id,:time)";
+            String joinRanger="INSERT INTO rangers_sightings (ranger_id,sighting_id) VALUES (:ranger_id,:sighting_id)";
+            String joinLocation="INSERT INTO locations_sightings (location_id,sighting_id) VALUES (:location_id," +
+                    ":sighting_id)";
 
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("animal_id",this.animal_id)
@@ -98,6 +101,10 @@ public class Sightings {
                     .addParameter("time",this.time)
                     .executeUpdate()
                     .getKey();
+
+            con.createQuery(joinRanger).addParameter("ranger_id",this.ranger_id).addParameter("sighting_id",this.id).executeUpdate();
+            con.createQuery(joinLocation).addParameter("location_id",this.location_id).addParameter("sighting_id",
+                    this.id).executeUpdate();
 
             }
 
