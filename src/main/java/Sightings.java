@@ -1,6 +1,8 @@
 import org.sql2o.Connection;
 
 import java.sql.Timestamp;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,12 +12,17 @@ public class Sightings {
     private int location_id;
     private int ranger_id;
     private int animal_id;
+    private Date date= new Date();
     private Timestamp time;
+
+
 
     public Sightings(int location_id, int ranger_id, int animal_id) {
         this.location_id = location_id;
         this.ranger_id = ranger_id;
         this.animal_id = animal_id;
+        this.time = new Timestamp(date.getTime());
+
     }
 
     public int getId() {
@@ -57,21 +64,40 @@ public class Sightings {
         }
     }
 
+    public void delete(){
+        try (Connection con=DB.sql2o.open()){
+            String sql="DELETE FROM sightings WHERE id=:id";
+            con.createQuery(sql)
+                    .addParameter("id",this.id)
+                    .executeUpdate();
+        }
+
+    }
+    public static void deleteAll(){
+        try (Connection con=DB.sql2o.open()){
+            String sql="DELETE FROM sightings";
+            con.createQuery(sql)
+                    .executeUpdate();
+        }
+
+    }
+
     public void save(){
 
        if(this.animal_id==-1||this.location_id==-1||this.ranger_id==-1){
            throw new IllegalArgumentException("All fields must be filled");
        }
         try (Connection con=DB.sql2o.open()){
-            String sql= "INSERT INTO sightings (animal_id,ranger_id,location_id,time) VALUES (:animal_id,ranger_id," +
-                    ":location_id,now()";
+            String sql= "INSERT INTO sightings (animal_id,ranger_id,location_id,time) VALUES (:animal_id,:ranger_id," +
+                    ":location_id,:time)";
+
             this.id=(int) con.createQuery(sql,true)
                     .addParameter("animal_id",this.animal_id)
                     .addParameter("ranger_id",this.ranger_id)
                     .addParameter("location_id",this.location_id)
+                    .addParameter("time",this.time)
                     .executeUpdate()
                     .getKey();
-
 
             }
 
