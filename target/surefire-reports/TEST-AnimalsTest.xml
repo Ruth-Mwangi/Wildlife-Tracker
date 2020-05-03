@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="AnimalsTest" time="0.002" errors="7" skipped="0">
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="AnimalsTest" time="7.164" tests="7" errors="7" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.6+10"/>
@@ -20,8 +20,7 @@
     <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="line.separator" value="
-"/>
+    <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
     <property name="classworlds.conf" value="/usr/share/maven/bin/m2.conf"/>
@@ -62,347 +61,39 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="AnimalsTest" name="findByIdReturnsCorrectInfo" time="0">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="findByIdReturnsCorrectInfo" classname="AnimalsTest" time="1.221">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
-  <testcase classname="AnimalsTest" name="deleteAllEntries" time="0.001">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="deleteAllEntries" classname="AnimalsTest" time="1.127">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
-  <testcase classname="AnimalsTest" name="ensureNameFieldCannotBeEmpty" time="0">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="ensureNameFieldCannotBeEmpty" classname="AnimalsTest" time="0.617">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
-  <testcase classname="AnimalsTest" name="allInstancesAreSaved" time="0.001">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="allInstancesAreSaved" classname="AnimalsTest" time="1.147">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
-  <testcase classname="AnimalsTest" name="deleteById" time="0">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="deleteById" classname="AnimalsTest" time="1.204">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
-  <testcase classname="AnimalsTest" name="testInstanceOfAnimalsClass_true" time="0">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="testInstanceOfAnimalsClass_true" classname="AnimalsTest" time="0.622">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
-  <testcase classname="AnimalsTest" name="ensureEntryIsUpdatedCorrectly" time="0">
-    <error message="Could not acquire a connection from DataSource - The connection attempt failed." type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - The connection attempt failed.
-	at org.sql2o.Connection.createConnection(Connection.java:291)
-	at org.sql2o.Connection.&lt;init&gt;(Connection.java:51)
-	at org.sql2o.Sql2o.open(Sql2o.java:225)
-	at DatabaseRule.after(DatabaseRule.java:14)
-	at org.junit.rules.ExternalResource$1.evaluate(ExternalResource.java:50)
-	at org.junit.rules.RunRules.evaluate(RunRules.java:20)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: org.postgresql.util.PSQLException: The connection attempt failed.
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
-	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:67)
-	at org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:216)
-	at org.postgresql.Driver.makeConnection(Driver.java:406)
-	at org.postgresql.Driver.connect(Driver.java:274)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
-	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:189)
-	at org.sql2o.GenericDatasource.getConnection(GenericDatasource.java:62)
-	at org.sql2o.Connection.createConnection(Connection.java:288)
-	... 26 more
-Caused by: java.net.UnknownHostException: tlafeaczpyudbw:cf9f6b81d98c18d5012a80842c01928b0331586444c6b9c08bc8504f67cbc678@ec2-18-209-187-54.compute-1.amazonaws.com
-	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:220)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:403)
-	at java.base/java.net.Socket.connect(Socket.java:609)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:64)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:133)
-	... 34 more
+  <testcase name="ensureEntryIsUpdatedCorrectly" classname="AnimalsTest" time="1.224">
+    <error message="Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host &quot;197.237.24.209&quot;, user &quot;tlafeaczpyudbw&quot;, database &quot;d7m5mfo9caefm6&quot;, SSL off" type="org.sql2o.Sql2oException">org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
+Caused by: org.postgresql.util.PSQLException: FATAL: no pg_hba.conf entry for host "197.237.24.209", user "tlafeaczpyudbw", database "d7m5mfo9caefm6", SSL off
 </error>
   </testcase>
 </testsuite>
